@@ -96,4 +96,50 @@ function trouverMaxMatrice(matrice){
     console.log(eleSupFinal)
 }
 
-trouverMaxMatrice(notesHebdomadaires)
+console.log("Max de matrice est :")+trouverMaxMatrice(notesHebdomadaires)
+
+
+
+// Challenge 02
+
+// 1. Affiche le nom de chaque squad.
+
+squads.forEach(squad => {
+    console.log(`Nom de squad ${squad.id} : ${squad.nom}`)
+})
+
+// 2. Affiche le nom et la note JavaScript de chaque etudiant.
+
+console.log("Les apprenants")
+
+squads.forEach(squad => {
+    squad.apprenants.forEach(apprenant => {
+        console.log(`Nom : ${apprenant.nom}`)+console.log(`note JavaScript : ${apprenant.notes.javascript}`)
+    })
+})
+
+// 3. Modifie la note JavaScript de Salma à 15.
+
+let squadSalma = squads.find(squad => squad.apprenants.find(apprenant => apprenant.nom == 'Salma'))
+
+let squadSalmaApprenants = squadSalma.apprenants
+
+let salma = squadSalmaApprenants.find(apprenant => apprenant.nom == "Salma")
+
+salma.notes.javascript = 15
+
+console.log(salma)
+
+// 4. Ajoute la compétence "JavaScript" à Salma.
+
+salma.competences.push("Javascript")
+
+console.log(salma)
+
+// 5. Ajoute un nouvel étudiant dans la squad Gamma.
+
+let squadGamma = squads.find(squad => squad.nom == "Gamma")
+
+squadGamma.apprenants.push({id : 107, nom: 'NouveauApprenant', notes: [], competences: []})
+
+console.log(squadGamma)
