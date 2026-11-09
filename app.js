@@ -60,3 +60,40 @@ const notesHebdomadaires = [
   [8, 11, 14],
   [16, 18, 19]
 ];
+
+// Challenge 01
+
+// 1. Affiche la deuxième note du premier tableau.
+
+console.log(notesHebdomadaires[0][1])
+
+// 2. Calcule la somme des notes de chaque ligne.
+
+notesHebdomadaires.forEach(arr => console.log(arr.reduce((a,b) => a+b)))
+
+// 3. Affiche toutes les notes supérieures ou égales à 15.
+
+notesHebdomadaires.forEach(arr => console.log(arr.filter(note => note >= 15)))
+
+// 4. Trouve la note la plus élevée de toute la matrice.
+
+function trouverMaxMatrice(matrice){
+    eleSupFinal = 0
+   matrice.forEach(arr => {
+    eleSup = arr[0]
+
+    arr.forEach(ele => {
+        if(ele>eleSup){
+            eleSup = ele
+        }
+    })
+
+    if(eleSup>eleSupFinal){
+        eleSupFinal = eleSup
+    }
+
+   })
+    console.log(eleSupFinal)
+}
+
+trouverMaxMatrice(notesHebdomadaires)
